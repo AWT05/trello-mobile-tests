@@ -1,4 +1,4 @@
-package org.fundacionjala.Pages;
+package org.fundacionjala.core.ui.page;
 
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +11,7 @@ public class PageObject {
 
     public PageObject(final WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, 20);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-//        PageFactory.initElements(driver, this);
     }
 }

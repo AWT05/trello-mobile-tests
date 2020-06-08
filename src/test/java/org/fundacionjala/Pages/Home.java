@@ -1,10 +1,12 @@
 package org.fundacionjala.Pages;
 
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.fundacionjala.core.ui.page.PageObject;
 
 import java.util.List;
 
@@ -18,22 +20,22 @@ public final class Home extends PageObject {
     private final static String CREATE_BUTTON = "com.trello:id/create_board";
     private final static String BOARD_TITLE = "com.trello:id/toolbar_title";
 
-    @FindBy(id = ADD_BUTTON)
+    @AndroidFindBy(id = ADD_BUTTON)
     private MobileElement addButton;
 
-    @FindBy(id = ADD_BOARD_BUTTON)
+    @AndroidFindBy(id = ADD_BOARD_BUTTON)
     private MobileElement addCardButton;
 
-    @FindBy(id = BOARD_NAME_FIELD)
+    @AndroidFindBy(id = BOARD_NAME_FIELD)
     private MobileElement boardNameField;
 
-    @FindBy(id = TEAM_DROPDOWN)
+    @AndroidFindBy(id = TEAM_DROPDOWN)
     private MobileElement teamDropdown;
 
-    @FindBy(xpath = LIST_OF_TEAMS_XPATH)
+    @AndroidFindBy(xpath = LIST_OF_TEAMS_XPATH)
     private List<MobileElement> listOfteams;
 
-    @FindBy(id = CREATE_BUTTON)
+    @AndroidFindBy(id = CREATE_BUTTON)
     private MobileElement createButton;
 
     @FindBy(id = BOARD_TITLE)
@@ -45,7 +47,8 @@ public final class Home extends PageObject {
 
     public void addButtonClick() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.trello:id/view_pager")));
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout")));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//androidx.recyclerview.widget." +
+                "RecyclerView/android.widget.FrameLayout")));
         addButton.click();
     }
 
