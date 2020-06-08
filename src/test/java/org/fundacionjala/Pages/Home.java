@@ -1,8 +1,10 @@
 package org.fundacionjala.Pages;
 
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -42,6 +44,8 @@ public final class Home extends PageObject {
     }
 
     public void addButtonClick() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.trello:id/view_pager")));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout")));
         addButton.click();
     }
 
@@ -52,10 +56,10 @@ public final class Home extends PageObject {
     public void createBasicBoard(final String boardName) {
         addButtonClick();
         addCardButton.click();
-        boardNameField.sendKeys("boardName");
+        wait.until(ExpectedConditions.visibilityOf(boardNameField));
+        boardNameField.sendKeys(boardName);
         teamDropdown.click();
         listOfteams.get(0).click();
         createButton.click();
     }
-
 }

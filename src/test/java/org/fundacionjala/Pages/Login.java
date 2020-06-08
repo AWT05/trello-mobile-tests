@@ -10,7 +10,6 @@ public final class Login extends PageObject {
     @FindBy(id = PRIMARY_CREDENTIAL)
     private MobileElement primarySmartlockCredential;
 
-
     public Login(final WebDriver driver) {
         super(driver);
     }
@@ -18,5 +17,4 @@ public final class Login extends PageObject {
     public void loginWithSmartLock() {
         primarySmartlockCredential.click();
     }
-
 }
