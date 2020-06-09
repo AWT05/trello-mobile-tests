@@ -19,7 +19,6 @@ public final class Home extends PageObject {
     private final static String TEAM_DROPDOWN = "com.trello:id/team_spinner";
     private final static String LIST_OF_TEAMS_XPATH = "//android.widget.ListView/android.view.ViewGroup";
     private final static String CREATE_BUTTON = "com.trello:id/create_board";
-    private final static String BOARD_TITLE = "com.trello:id/toolbar_title";
 
     @AndroidFindBy(id = ADD_BUTTON)
     private MobileElement addButton;
@@ -39,9 +38,7 @@ public final class Home extends PageObject {
     @AndroidFindBy(id = CREATE_BUTTON)
     private MobileElement createButton;
 
-    @FindBy(id = BOARD_TITLE)
-    private MobileElement boardTitle;
-    private FormPage<?> form;
+
 
     public Home(final WebDriver driver) {
         super(driver);
@@ -52,10 +49,6 @@ public final class Home extends PageObject {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//androidx.recyclerview.widget." +
                 "RecyclerView/android.widget.FrameLayout")));
         addButton.click();
-    }
-
-    public String getBoardTitle() {
-        return boardTitle.getText();
     }
 
     public void createBasicBoard() {

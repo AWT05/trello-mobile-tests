@@ -8,4 +8,3 @@
     When I create a board from addButton with the following data
       | title | Trello  |
     Then "Trello" board page should be visible
-
