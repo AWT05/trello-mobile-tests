@@ -2,6 +2,7 @@ package org.fundacionjala.Pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.fundacionjala.core.ui.form.FormPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +25,7 @@ public final class Home extends PageObject {
     private MobileElement addButton;
 
     @AndroidFindBy(id = ADD_BOARD_BUTTON)
-    private MobileElement addCardButton;
+    private MobileElement addBoardButton;
 
     @AndroidFindBy(id = BOARD_NAME_FIELD)
     private MobileElement boardNameField;
@@ -40,6 +41,7 @@ public final class Home extends PageObject {
 
     @FindBy(id = BOARD_TITLE)
     private MobileElement boardTitle;
+    private FormPage<?> form;
 
     public Home(final WebDriver driver) {
         super(driver);
@@ -56,9 +58,12 @@ public final class Home extends PageObject {
         return boardTitle.getText();
     }
 
-    public void createBasicBoard(final String boardName) {
+    public void createBasicBoard() {
         addButtonClick();
-        addCardButton.click();
+        addBoardButton.click();
+    }
+
+    public void setBoardValues(String boardName) {
         wait.until(ExpectedConditions.visibilityOf(boardNameField));
         boardNameField.sendKeys(boardName);
         teamDropdown.click();

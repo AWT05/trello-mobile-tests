@@ -13,7 +13,8 @@ public class CreateBoardTest extends FunctionalTest {
 //        Login loginTest = new Login(driver);
 //        loginTest.loginWithSmartLock();
         Home homeTest = new Home(driver);
-        homeTest.createBasicBoard("Wild Hunt");
+        homeTest.createBasicBoard();
+        homeTest.setBoardValues("Wild Hunt");
         assertEquals("Wild Hunt", homeTest.getBoardTitle());
     }
 }

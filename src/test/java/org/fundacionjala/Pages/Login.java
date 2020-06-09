@@ -19,4 +19,5 @@ public final class Login extends PageObject {
     public void loginWithSmartLock() {
         primarySmartlockCredential.click();
     }
+
 }
