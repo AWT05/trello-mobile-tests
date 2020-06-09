@@ -14,7 +14,7 @@ public class Board extends PageObject {
     @FindBy(id = BOARD_TITLE)
     private MobileElement boardTitle;
 
-    @FindBy(id = CLOSE_BUTTON_XPATH)
+    @FindBy(xpath = CLOSE_BUTTON_XPATH)
     private MobileElement backButton;
 
     public Board(WebDriver driver) {
