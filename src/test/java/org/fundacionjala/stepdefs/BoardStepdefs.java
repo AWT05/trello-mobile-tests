@@ -1,5 +1,6 @@
 package org.fundacionjala.stepdefs;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.fundacionjala.Pages.Board;
@@ -40,4 +41,16 @@ public class BoardStepdefs {
     public void boardPageShouldBeVisible(String arg0) {
         assertEquals(arg0, boardPage.getBoardTitle());
     }
+
+    @When("I navigate to boards home page")
+    public void iNavigateToBoardsHomePage() {
+        boardPage.closeBoard();
+        homepage.goToBoards();
+    }
+
+    @When("I select {string} board")
+    public void selectBoardFromSection(final String name) {
+        homepage.selectBoard(name);
+    }
+
 }

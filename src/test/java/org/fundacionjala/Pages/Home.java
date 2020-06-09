@@ -2,7 +2,6 @@ package org.fundacionjala.Pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.fundacionjala.core.ui.form.FormPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +18,15 @@ public final class Home extends PageObject {
     private final static String TEAM_DROPDOWN = "com.trello:id/team_spinner";
     private final static String LIST_OF_TEAMS_XPATH = "//android.widget.ListView/android.view.ViewGroup";
     private final static String CREATE_BUTTON = "com.trello:id/create_board";
+    private final static String OPEN_SIDE_DRAWER_XPATH = "//android.widget.ImageButton[@content-desc='Open Drawer']";
+    private final static String HEADER_NAME_XPATH = "//android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView";
+    private final static String SIDE_DRAWER_BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
+            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout" +
+            ".widget.DrawerLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view." +
+            "ViewGroup[2]/android.widget.TextView";
+    private final static String AVAILABLE_BOARDS_XPATH = "//androidx.recyclerview.widget.RecyclerView/" +
+            "android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView";
+
 
     @AndroidFindBy(id = ADD_BUTTON)
     private MobileElement addButton;
@@ -37,6 +45,18 @@ public final class Home extends PageObject {
 
     @AndroidFindBy(id = CREATE_BUTTON)
     private MobileElement createButton;
+
+    @AndroidFindBy(xpath = OPEN_SIDE_DRAWER_XPATH)
+    private MobileElement openSideDrawerButton;
+
+    @AndroidFindBy(xpath = HEADER_NAME_XPATH)
+    private MobileElement headerName;
+
+    @FindBy(xpath = SIDE_DRAWER_BOARDS_XPATH)
+    private MobileElement boardsButtonSideMenu;
+
+    @AndroidFindBy(xpath = AVAILABLE_BOARDS_XPATH)
+    private List<MobileElement> listOfBoards;
 
     public Home(final WebDriver driver) {
         super(driver);
@@ -60,5 +80,44 @@ public final class Home extends PageObject {
         teamDropdown.click();
         listOfteams.get(0).click();
         createButton.click();
+    }
+
+    public void openSideDrawer() {
+        wait.until(ExpectedConditions.visibilityOf(openSideDrawerButton));
+        openSideDrawerButton.click();
+    }
+
+    public void openSideDrawerIf(String headerNameToValidate) {
+        if (askIfHomeNameIsDisplayed(headerNameToValidate) == false) {
+            openSideDrawer();
+        }
+    }
+
+    public void goToBoards() {
+        if (askIfHomeNameIsDisplayed("Boards") == false) {
+            wait.until(ExpectedConditions.visibilityOf(openSideDrawerButton));
+            openSideDrawerButton.click();
+            boardsButtonSideMenu.click();
+        }
+    }
+
+    public boolean askIfHomeNameIsDisplayed(String headerNameToValidate) {
+        wait.until(ExpectedConditions.visibilityOf(headerName));
+        if (headerName.getText() == headerNameToValidate) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void selectBoard(String name) {
+
+        listOfBoards.forEach((temp) -> {
+            if(temp.getText()==name)
+            {
+                temp.click();
+            }
+            System.out.println(temp);
+        });
     }
 }
