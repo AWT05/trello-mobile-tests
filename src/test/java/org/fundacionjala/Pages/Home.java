@@ -38,8 +38,6 @@ public final class Home extends PageObject {
     @AndroidFindBy(id = CREATE_BUTTON)
     private MobileElement createButton;
 
-
-
     public Home(final WebDriver driver) {
         super(driver);
     }

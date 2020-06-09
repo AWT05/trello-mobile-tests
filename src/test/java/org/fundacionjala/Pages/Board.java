@@ -19,6 +19,4 @@ public class Board extends PageObject {
     public String getBoardTitle() {
         return boardTitle.getText();
     }
-
-
 }

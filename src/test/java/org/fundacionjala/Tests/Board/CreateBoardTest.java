@@ -11,10 +11,11 @@ public class CreateBoardTest extends FunctionalTest {
 
     @Test
     public void createBoardMobileTest() {
+        //TO DO
 //        Login loginTest = new Login(driver);
 //        loginTest.loginWithSmartLock();
         Home homeTest = new Home(driver);
-        Board boardTest=new Board(driver);
+        Board boardTest = new Board(driver);
         homeTest.createBasicBoard();
         homeTest.setBoardValues("Wild Hunt");
         assertEquals("Wild Hunt", boardTest.getBoardTitle());
