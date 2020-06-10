@@ -1,7 +1,7 @@
 package org.fundacionjala.core.ui.page;
 
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.Environment;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;

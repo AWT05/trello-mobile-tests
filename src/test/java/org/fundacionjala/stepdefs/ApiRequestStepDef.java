@@ -2,11 +2,11 @@ package org.fundacionjala.stepdefs;
 
 import io.cucumber.java.en.Given;
 import io.restassured.response.Response;
+import org.fundacionjala.context.ContextTrello;
+import org.fundacionjala.context.UserTrello;
 import org.fundacionjala.core.api.RequestManager;
-import org.fundacionjala.trello.context.ContextTrello;
 import org.fundacionjala.trello.context.EndPointsEnum;
-import org.fundacionjala.trello.context.UserTrello;
-import org.fundacionjala.trello.utils.CommonValidations;
+import org.fundacionjala.utils.CommonValidations;
 
 import java.util.HashMap;
 import java.util.Map;

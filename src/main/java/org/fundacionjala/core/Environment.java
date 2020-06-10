@@ -1,4 +1,4 @@
-package org.fundacionjala.core.ui.config;
+package org.fundacionjala.core;
 
 import io.restassured.path.json.JsonPath;
 
@@ -15,6 +15,9 @@ import java.util.Properties;
 
 public final class Environment {
 
+    private static final String API_BASE_URI = "apiBaseUri";
+    private static final String ACCOUNTS = "accounts";
+    private static final String USER = "user";
     private static final String ROOT_PATH = ".";
     private static final String CONFIG_JSON = "config.json";
     private static final String GRADLE_PROPERTIES = "gradle.properties";
@@ -100,5 +103,27 @@ public final class Environment {
 
     public int getReducedTime() {
         return Integer.parseInt(getEnvProperty(REDUCE_EXPLICIT_TIME));
+    }
+
+    /**
+     * Gets account from environment config.
+     *
+     * @param user account to get user data.
+     * @return account json path object.
+     */
+    @SuppressWarnings("unchecked")
+    public Map<String, String> getAccount(final String user) {
+        List<Map<String, String>> accounts = (List<Map<String, String>>) envConfig.get(ACCOUNTS);
+        return accounts.stream().filter(account -> account.get(USER).equals(user))
+                .findFirst().orElse(new HashMap<>());
+    }
+
+    /**
+     * Gets environment base API URI.
+     *
+     * @return environment base API URI.
+     */
+    public String getApiBaseUri() {
+        return envConfig.get(API_BASE_URI).toString();
     }
 }

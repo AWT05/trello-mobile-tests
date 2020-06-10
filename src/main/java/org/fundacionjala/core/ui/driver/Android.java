@@ -3,7 +3,7 @@ package org.fundacionjala.core.ui.driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.Environment;
 import org.fundacionjala.core.ui.device.Device;
 import org.openqa.selenium.WebDriver;
 
