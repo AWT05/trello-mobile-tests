@@ -8,6 +8,11 @@ apply plugin: 'pmd'
 group 'org.fundacionjala'
 version '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 repositories {
     mavenCentral()
 }
@@ -42,7 +47,6 @@ checkstyle {
 pmd {
     toolVersion = '6.0.0'
 }
-
 
 tasks.withType(Pmd) {
     ruleSets = ["java-basic", "java-braces", "java-unnecessary", "java-unusedcode", "java-strictexception"]
