@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DriverFactory {
+public final class DriverFactory {
 
     private static ThreadLocal<WebDriver> drivers = new ThreadLocal<>();
     private static List<WebDriver> storedDrivers = new ArrayList<>();
