@@ -13,8 +13,8 @@ import java.util.List;
 
 public final class Home extends PageObject {
 
-    private static final String BOARD_EN="Boards";
-    private static final String BOARD_ES="Tableros";
+    private static final String BOARD_EN = "Boards";
+    private static final String BOARD_ES = "Tableros";
     private static final String ADD_BUTTON = "com.trello:id/add_fab";
     private static final String ADD_BOARD_BUTTON = "com.trello:id/add_board_fab";
     private static final String BOARD_NAME_FIELD = "com.trello:id/board_name";
@@ -95,7 +95,7 @@ public final class Home extends PageObject {
     }
 
     public void goToBoards() {
-        if ((!isHomeDisplayed(BOARD_EN))){
+        if ((!isHomeDisplayed(BOARD_EN))) {
             wait.until(ExpectedConditions.visibilityOf(openSideDrawerButton));
             openSideDrawerButton.click();
             boardsButtonSideMenu.click();
