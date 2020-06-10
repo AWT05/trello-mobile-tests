@@ -64,8 +64,6 @@ public final class Home extends PageObject {
 
     public void addButtonClick() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("com.trello:id/view_pager")));
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//androidx.recyclerview.widget." +
-                "RecyclerView/android.widget.FrameLayout")));
         addButton.click();
     }
 
