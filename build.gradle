@@ -8,6 +8,11 @@ apply plugin: 'pmd'
 group 'org.fundacionjala'
 version '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
 repositories {
     mavenCentral()
 }
@@ -21,7 +26,7 @@ dependencies {
     implementation group: 'io.appium', name: 'java-client', version: '7.3.0'
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.0.0'
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.28'
-//    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.3.0'
 //    implementation group: 'io.rest-assured', name: 'json-schema-validator', version: '4.3.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '5.6.0'
     testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: '5.6.0'
@@ -42,7 +47,6 @@ checkstyle {
 pmd {
     toolVersion = '6.0.0'
 }
-
 
 tasks.withType(Pmd) {
     ruleSets = ["java-basic", "java-braces", "java-unnecessary", "java-unusedcode", "java-strictexception"]
