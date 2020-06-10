@@ -17,12 +17,19 @@ public class DriverFactory {
     private DriverFactory() {
     }
 
+    /**
+     * Sets a driver in a thread.
+     *
+     * @param driver specific driver.
+     */
     public static void setDriver(final WebDriver driver) {
         drivers.set(driver);
         storedDrivers.add(driver);
     }
 
     /**
+     * Gets the driver from a thread
+     *
      * @return the driver.
      */
     public static WebDriver getDriver() {

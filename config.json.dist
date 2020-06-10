@@ -1,0 +1,43 @@
+[
+  {
+    "platform": "android",
+    "uiBaseUrl": "https://trello.com",
+    "apiBaseUri": "https://api.trello.com/1",
+    "devices": {
+      "real" : {
+        "deviceName": "SM-A205G",
+        "udid": "R58M60V7SBJ",
+        "platformName": "Android",
+        "platformVersion": "10",
+        "appPackage": "com.trello",
+        "appActivity": ".home.HomeActivity"
+      },
+      "emulator" : {
+        "deviceName": "generic_android29",
+        "udid": "emulator-5554",
+        "platformName": "Android",
+        "platformVersion": "10",
+        "appPackage": "com.android.dialer",
+        "appActivity": ".main.impl.MainActivity"
+      }
+    },
+    "accounts": [
+      {
+        "user": "user1",
+        "email": "",
+        "username": "",
+        "password": "",
+        "key": "",
+        "token": ""
+      },
+      {
+        "user": "user2",
+        "email": "",
+        "username": "",
+        "password": "",
+        "key": "",
+        "token": ""
+      }
+    ]
+  }
+]
