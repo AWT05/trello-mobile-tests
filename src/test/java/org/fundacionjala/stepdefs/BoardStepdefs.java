@@ -1,6 +1,5 @@
 package org.fundacionjala.stepdefs;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.fundacionjala.Pages.Board;
@@ -14,7 +13,7 @@ import java.util.Map;
 import static org.fundacionjala.core.ui.driver.DriverFactory.getDriver;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class BoardStepdefs {
+public final class BoardStepdefs {
 
     private FormPage<?> form;
     private Home homepage;
@@ -38,8 +37,8 @@ public class BoardStepdefs {
     }
 
     @Then("{string} board page should be visible")
-    public void boardPageShouldBeVisible(String arg0) {
-        assertEquals(arg0, boardPage.getBoardTitle());
+    public void boardPageShouldBeVisible(final String boardNameTitle) {
+        assertEquals(boardNameTitle, boardPage.getBoardTitle());
     }
 
     @When("I navigate to boards home page")

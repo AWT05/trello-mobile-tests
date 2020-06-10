@@ -12,20 +12,20 @@ import java.util.List;
 
 public final class Home extends PageObject {
 
-    private final static String ADD_BUTTON = "com.trello:id/add_fab";
-    private final static String ADD_BOARD_BUTTON = "com.trello:id/add_board_fab";
-    private final static String BOARD_NAME_FIELD = "com.trello:id/board_name";
-    private final static String TEAM_DROPDOWN = "com.trello:id/team_spinner";
-    private final static String LIST_OF_TEAMS_XPATH = "//android.widget.ListView/android.view.ViewGroup";
-    private final static String CREATE_BUTTON = "com.trello:id/create_board";
-    private final static String OPEN_SIDE_DRAWER_XPATH = "//android.widget.ImageButton[@content-desc='Open Drawer']";
-    private final static String HEADER_NAME_XPATH = "//android.widget.LinearLayout/android.view.ViewGroup/" +
+    private static final String ADD_BUTTON = "com.trello:id/add_fab";
+    private static final String ADD_BOARD_BUTTON = "com.trello:id/add_board_fab";
+    private static final String BOARD_NAME_FIELD = "com.trello:id/board_name";
+    private static final String TEAM_DROPDOWN = "com.trello:id/team_spinner";
+    private static final String LIST_OF_TEAMS_XPATH = "//android.widget.ListView/android.view.ViewGroup";
+    private static final String CREATE_BUTTON = "com.trello:id/create_board";
+    private static final String OPEN_SIDE_DRAWER_XPATH = "//android.widget.ImageButton[@content-desc='Open Drawer']";
+    private static final String HEADER_NAME_XPATH = "//android.widget.LinearLayout/android.view.ViewGroup/" +
             "android.widget.TextView";
-    private final static String SIDE_DRAWER_BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android" +
+    private static final String SIDE_DRAWER_BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android" +
             ".widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget." +
             "FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/androidx." +
             "recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView";
-    private final static String AVAILABLE_BOARDS_XPATH = "//androidx.recyclerview.widget.RecyclerView/" +
+    private static final String AVAILABLE_BOARDS_XPATH = "//androidx.recyclerview.widget.RecyclerView/" +
             "android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView";
 
     @AndroidFindBy(id = ADD_BUTTON)
@@ -74,7 +74,7 @@ public final class Home extends PageObject {
         addBoardButton.click();
     }
 
-    public void setBoardValues(String boardName) {
+    public void setBoardValues(final String boardName) {
         wait.until(ExpectedConditions.visibilityOf(boardNameField));
         boardNameField.sendKeys(boardName);
         teamDropdown.click();
@@ -87,7 +87,7 @@ public final class Home extends PageObject {
         openSideDrawerButton.click();
     }
 
-    public void openSideDrawerIf(String headerNameToValidate) {
+    public void openSideDrawerIf(final String headerNameToValidate) {
         if (askIfHomeNameIsDisplayed(headerNameToValidate) == false) {
             openSideDrawer();
         }
@@ -101,17 +101,18 @@ public final class Home extends PageObject {
         }
     }
 
-    public boolean askIfHomeNameIsDisplayed(String headerNameToValidate) {
+    public boolean askIfHomeNameIsDisplayed(final String headerNameToValidate) {
         wait.until(ExpectedConditions.visibilityOf(headerName));
         String validator = headerName.getText();
-        if (validator.equals(headerNameToValidate)) {
-            return true;
-        } else {
-            return false;
-        }
+        return validator.equals(headerNameToValidate);
+//        if (validator.equals(headerNameToValidate)) {
+//            return true;
+//        } else {
+//            return false;
+//        }
     }
 
-    public void selectBoard(String name) {
+    public void selectBoard(final String name) {
         listOfBoards.get(0).click();
     }
 }

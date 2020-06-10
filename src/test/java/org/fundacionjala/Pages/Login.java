@@ -6,7 +6,7 @@ import org.fundacionjala.core.ui.page.PageObject;
 import org.openqa.selenium.WebDriver;
 
 public final class Login extends PageObject {
-    private final static String PRIMARY_CREDENTIAL = "com.google.android.gms:id/credential_primary_label";
+    private static final String PRIMARY_CREDENTIAL = "com.google.android.gms:id/credential_primary_label";
 
     @AndroidFindBy(id = PRIMARY_CREDENTIAL)
     private MobileElement primarySmartlockCredential;

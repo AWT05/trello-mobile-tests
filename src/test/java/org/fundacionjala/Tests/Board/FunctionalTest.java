@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class FunctionalTest {
+    private static final int IMPLICIT_SECONDS = 30;
     protected static WebDriver driver;
 
     @BeforeMethod
@@ -25,7 +26,7 @@ public class FunctionalTest {
         desCap.setCapability("udid", "emulator-5554");
         try {
             driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:5554/wd/hub"), desCap);
-            driver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(IMPLICIT_SECONDS, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
