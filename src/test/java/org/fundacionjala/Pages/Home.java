@@ -4,6 +4,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.fundacionjala.core.ui.page.PageObject;
@@ -12,6 +13,8 @@ import java.util.List;
 
 public final class Home extends PageObject {
 
+    private static final String BOARD_EN="Boards";
+    private static final String BOARD_ES="Tableros";
     private static final String ADD_BUTTON = "com.trello:id/add_fab";
     private static final String ADD_BOARD_BUTTON = "com.trello:id/add_board_fab";
     private static final String BOARD_NAME_FIELD = "com.trello:id/board_name";
@@ -56,7 +59,7 @@ public final class Home extends PageObject {
     private MobileElement boardsButtonSideMenu;
 
     @AndroidFindBy(xpath = AVAILABLE_BOARDS_XPATH)
-    private List<MobileElement> listOfBoards;
+    private List<WebElement> listOfBoards;
 
     public Home(final WebDriver driver) {
         super(driver);
@@ -73,7 +76,7 @@ public final class Home extends PageObject {
     }
 
     public void setBoardValues(final String boardName) {
-        wait.until(ExpectedConditions.visibilityOf(boardNameField));
+        wait.until(ExpectedConditions.visibilityOf(teamDropdown));
         boardNameField.sendKeys(boardName);
         teamDropdown.click();
         listOfteams.get(0).click();
@@ -86,31 +89,32 @@ public final class Home extends PageObject {
     }
 
     public void openSideDrawerIf(final String headerNameToValidate) {
-        if (askIfHomeNameIsDisplayed(headerNameToValidate) == false) {
+        if (!isHomeDisplayed(headerNameToValidate)) {
             openSideDrawer();
         }
     }
 
     public void goToBoards() {
-        if (askIfHomeNameIsDisplayed("Boards") == false) {
+        if ((!isHomeDisplayed(BOARD_EN))){
             wait.until(ExpectedConditions.visibilityOf(openSideDrawerButton));
             openSideDrawerButton.click();
             boardsButtonSideMenu.click();
         }
     }
 
-    public boolean askIfHomeNameIsDisplayed(final String headerNameToValidate) {
+    public boolean isHomeDisplayed(final String headerNameToValidate) {
         wait.until(ExpectedConditions.visibilityOf(headerName));
         String validator = headerName.getText();
         return validator.equals(headerNameToValidate);
-//        if (validator.equals(headerNameToValidate)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
     }
 
     public void selectBoard(final String name) {
-        listOfBoards.get(0).click();
+        wait.until(ExpectedConditions.visibilityOfAllElements((listOfBoards)));
+        for (WebElement search : listOfBoards) {
+            if (search.getText().equals(name)) {
+                search.click();
+                break;
+            }
+        }
     }
 }

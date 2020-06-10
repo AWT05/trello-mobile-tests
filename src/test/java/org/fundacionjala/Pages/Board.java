@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public final class Board extends PageObject {
 
     private static final String BOARD_TITLE = "com.trello:id/toolbar_title";
-    private static final String CLOSE_BUTTON_XPATH = "//android.widget.ImageButton[@content-desc='Close']";
+    private static final String CLOSE_BUTTON_XPATH = "//android.widget.ImageButton[@content-desc]";
 
     @FindBy(id = BOARD_TITLE)
     private MobileElement boardTitle;

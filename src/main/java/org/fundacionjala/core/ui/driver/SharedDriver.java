@@ -22,7 +22,7 @@ public class SharedDriver {
             desCap.setCapability("appActivity", ".home.HomeActivity");
             desCap.setCapability("udid", "emulator-5554");
             try {
-                WebDriver driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:5554/wd/hub"), desCap);
+                WebDriver driver = new AppiumDriver<MobileElement>(new URL("http://127.0.0.1:5556/wd/hub"), desCap);
                 driver.manage().timeouts().implicitlyWait(IMPLICIT_SECONDS, TimeUnit.SECONDS);
                 DriverFactory.setDriver(driver);
             } catch (MalformedURLException e) {

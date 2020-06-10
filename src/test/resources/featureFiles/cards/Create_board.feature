@@ -6,8 +6,8 @@ Feature: Board context.
 
   Scenario: Create a simple personal board from header.
     When I create a board from addButton with the following data
-      | title | Wild Hunt |
-    Then "Wild Hunt" board page should be visible
+      | title | NOT wild |
+    Then "NOT wild" board page should be visible
     And I navigate to boards home page
-    * I select "Wild Hunt" board
-    Then "Wild Hunt" board page should be visible
+    * I select "NOT wild" board
+    Then "NOT wild" board page should be visible
