@@ -13,7 +13,7 @@ import java.util.Map;
 import static org.fundacionjala.core.ui.driver.DriverFactory.getDriver;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class BoardStepdefs {
+public final class BoardStepdefs {
 
     private FormPage<?> form;
     private Home homepage;
@@ -37,7 +37,19 @@ public class BoardStepdefs {
     }
 
     @Then("{string} board page should be visible")
-    public void boardPageShouldBeVisible(String arg0) {
-        assertEquals(arg0, boardPage.getBoardTitle());
+    public void boardPageShouldBeVisible(final String boardNameTitle) {
+        assertEquals(boardNameTitle, boardPage.getBoardTitle());
     }
+
+    @When("I navigate to boards home page")
+    public void iNavigateToBoardsHomePage() {
+        boardPage.closeBoard();
+        homepage.goToBoards();
+    }
+
+    @When("I select {string} board")
+    public void selectBoardFromSection(final String name) {
+        homepage.selectBoard(name);
+    }
+
 }
