@@ -18,7 +18,7 @@ public final class PlatformFactory {
 //        APPS.put("ios", Ios::new);
     }
 
-    public static WebDriver getDevice(String platformName) {
+    public static WebDriver getDevice(final String platformName) {
         return APPS.getOrDefault(platformName, Android::new).get().initDevice();
     }
 }

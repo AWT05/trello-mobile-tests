@@ -26,6 +26,8 @@ public final class Environment {
     private static final String EXPLICIT_TIME_WAIT = "explicitTimeWait";
     private static final String IMPLICIT_TIME_WAIT = "implicitTimeWait";
     private static final String REDUCE_EXPLICIT_TIME = "reduceExplicitTime";
+    private static final String PORT = "port";
+    private static final String IP_ADDRESS = "ipAddress";
 
     private static Environment instance;
 
@@ -68,6 +70,14 @@ public final class Environment {
 
     public String getPlatformName() {
         return getEnvProperty(PLATFORM_NAME);
+    }
+
+    public String getIpAddress() {
+        return getEnvProperty(IP_ADDRESS);
+    }
+
+    public Integer getPort() {
+        return Integer.valueOf(getEnvProperty(PORT));
     }
 
     @SuppressWarnings("unchecked")
