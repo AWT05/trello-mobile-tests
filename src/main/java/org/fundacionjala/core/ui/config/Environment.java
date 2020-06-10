@@ -34,7 +34,6 @@ public final class Environment {
     private final Properties properties;
     private Map<String, Object> envConfig;
 
-
     private Environment() {
         List<Map<String, Object>> environments;
         try (FileInputStream fileInputStream = new FileInputStream(GRADLE_PROPERTIES)) {
