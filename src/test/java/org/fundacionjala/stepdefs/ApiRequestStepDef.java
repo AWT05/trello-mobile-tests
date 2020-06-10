@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Groups request step definitions.
  */
-public class ApiRequestStepDef {
+public final class ApiRequestStepDef {
 
     private static final String ID = "id";
     private final Context context;
