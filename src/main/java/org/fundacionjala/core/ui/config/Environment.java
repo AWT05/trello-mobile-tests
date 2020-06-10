@@ -28,7 +28,9 @@ public final class Environment {
     private static final String REDUCE_EXPLICIT_TIME = "reduceExplicitTime";
     private static final String PORT = "port";
     private static final String IP_ADDRESS = "ipAddress";
-
+    private static final String API_BASE_URI = "apiBaseUri";
+    private static final String ACCOUNTS = "accounts";
+    private static final String USER = "user";
     private static Environment instance;
 
     private final Properties properties;
@@ -100,5 +102,16 @@ public final class Environment {
 
     public int getReducedTime() {
         return Integer.parseInt(getEnvProperty(REDUCE_EXPLICIT_TIME));
+    }
+
+    @SuppressWarnings("unchecked")
+    public Map<String, String> getAccount(final String user) {
+        List<Map<String, String>> accounts = (List<Map<String, String>>) envConfig.get(ACCOUNTS);
+        return accounts.stream().filter(account -> account.get(USER).equals(user))
+                .findFirst().orElse(new HashMap<>());
+    }
+
+    public String getApiBaseUri() {
+        return envConfig.get(API_BASE_URI).toString();
     }
 }
