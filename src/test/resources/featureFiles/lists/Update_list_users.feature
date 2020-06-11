@@ -13,6 +13,8 @@ Feature: list interactions
 
   @cleanData
   Scenario: updating a list from other account
+  This scenario works when the mobile device uses the step of authentication
+  but if it uses Google Play the log in step with the guest user will be skipped.
     Given I log in with my Trello account as "user1"
     And I select "ShareMobile" board
     When I update the "toShare" List with:
