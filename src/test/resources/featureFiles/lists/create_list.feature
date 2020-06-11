@@ -12,5 +12,5 @@ Feature: List
     And I select "TestApp" board
     When I create a List with:
       | name | ReviewSubjects |
-#    Then I should have a list created with:
-#      | name | To Do |
+    Then I should have a list created with:
+      | name | ReviewSubjects |
