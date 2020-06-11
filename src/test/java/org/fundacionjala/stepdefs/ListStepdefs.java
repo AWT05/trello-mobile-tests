@@ -3,7 +3,6 @@ package org.fundacionjala.stepdefs;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.fundacionjala.Pages.Board;
-import org.fundacionjala.Pages.list.ListForm;
 import org.fundacionjala.core.ui.driver.SharedDriver;
 import org.fundacionjala.core.ui.form.FormPage;
 

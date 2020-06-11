@@ -26,16 +26,7 @@ public final class LoginPage extends PageObject {
     }
 
     public Boolean skipLogin() {
-        Environment env = Environment.getInstance();
-        try {
-            wait.withTimeout(env.getReducedTime(), TimeUnit.SECONDS);
-            wait.until(ExpectedConditions.visibilityOf(messageButton));
-        } catch (TimeoutException e) {
-            return false;
-        } finally {
-            wait.withTimeout(env.getExplicitTimeWait(), TimeUnit.SECONDS);
-        }
-        return true;
+        return actions.isElementDisplayed(messageButton);
     }
 
     public LoginPage acceptMessage() {
