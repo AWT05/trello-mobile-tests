@@ -21,9 +21,6 @@ public final class Android extends AbstractPlatform {
         appiumServiceBuilder.usingPort(env.getPort());
         Device device = getDevice();
         WebDriver driver = new AppiumDriver<MobileElement>(appiumServiceBuilder, device.getCapabilities());
-        driver.manage().timeouts().implicitlyWait(
-                Environment.getInstance().getImplicitTimeWait(),
-                TimeUnit.SECONDS);
         return driver;
     }
 }
