@@ -100,7 +100,6 @@ public final class RequestManager {
         return given(requestSpec).when().post(mapOut(endpoint));
     }
 
-
     /**
      * Sends a PUT request to an <code>endpoint</code>.
      *
