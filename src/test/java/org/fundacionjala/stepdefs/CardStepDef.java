@@ -3,7 +3,6 @@ package org.fundacionjala.stepdefs;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.fundacionjala.Pages.ListPage;
-import org.fundacionjala.core.ui.driver.SharedDriver;
 import org.fundacionjala.core.ui.form.FormPage;
 
 import java.util.Map;
@@ -31,5 +30,13 @@ public final class CardStepDef {
     @Then("I should have a card on {string} list with:")
     public void validateCardCreation(final String listName, final Map<String, String> data) {
         assertTrue(listPage.selectList(listName).containsCard(data));
+    }
+
+    @When("I move {string} card from {string} to {string}")
+    public void iMoveCardFromTo(final String cardName, final String sourceList, final String targeList) {
+        listPage.selectList(sourceList)
+                .selectCard(cardName)
+                .dragAndDropTo(targeList);
+
     }
 }
