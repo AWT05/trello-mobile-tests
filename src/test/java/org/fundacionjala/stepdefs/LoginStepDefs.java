@@ -9,9 +9,9 @@ import static org.fundacionjala.core.ui.driver.DriverFactory.getDriver;
 
 public class LoginStepDefs {
 
-    LoginPage login;
+    private LoginPage login;
 
-    public LoginStepDefs(final SharedDriver driver){
+    public LoginStepDefs(final SharedDriver driver) {
         login = new LoginPage(getDriver());
     }
 
@@ -21,8 +21,8 @@ public class LoginStepDefs {
      * @param userAccount keyword to get an user.
      */
     @Given("I log in with my Trello account as {string}")
-    public void iLogInWithMyTrelloAccountAs(String userAccount) {
-        if(login.skipLogin()) {
+    public void iLogInWithMyTrelloAccountAs(final String userAccount) {
+        if (login.skipLogin()) {
             UserTrello user = new UserTrello(userAccount);
             login.acceptMessage().pressLoginButton()
                     .setUserName(user.getEmail())

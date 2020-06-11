@@ -14,7 +14,6 @@ import java.util.List;
 public final class Home extends PageObject {
 
     private static final String BOARD_EN = "Boards";
-    private static final String BOARD_ES = "Tableros";
     private static final String ADD_BUTTON = "com.trello:id/add_fab";
     private static final String ADD_BOARD_BUTTON = "com.trello:id/add_board_fab";
     private static final String BOARD_NAME_FIELD = "com.trello:id/board_name";
@@ -22,14 +21,14 @@ public final class Home extends PageObject {
     private static final String LIST_OF_TEAMS_XPATH = "//android.widget.ListView/android.view.ViewGroup";
     private static final String CREATE_BUTTON = "com.trello:id/create_board";
     private static final String OPEN_SIDE_DRAWER_XPATH = "//android.widget.ImageButton[@content-desc='Open Drawer']";
-    private static final String HEADER_NAME_XPATH = "//android.widget.LinearLayout/android.view.ViewGroup/" +
-            "android.widget.TextView";
-    private static final String SIDE_DRAWER_BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android" +
-            ".widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget." +
-            "FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/androidx." +
-            "recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView";
-    private static final String AVAILABLE_BOARDS_XPATH = "//androidx.recyclerview.widget.RecyclerView/" +
-            "android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView";
+    private static final String HEADER_NAME_XPATH = "//android.widget.LinearLayout/android.view.ViewGroup/"
+            + "android.widget.TextView";
+    private static final String SIDE_DRAWER_BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android"
+            + ".widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget."
+            + "FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/androidx."
+            + "recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView";
+    private static final String AVAILABLE_BOARDS_XPATH = "//androidx.recyclerview.widget.RecyclerView/"
+            + "android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView";
 
     @AndroidFindBy(id = ADD_BUTTON)
     private MobileElement addButton;

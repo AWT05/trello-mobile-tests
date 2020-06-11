@@ -55,7 +55,7 @@ public class ListStepdefs {
      */
     @When("I update the {string} List with:")
     public void iUpdateTheListWith(final String listName, final Map<String, String> data) {
-        form = boardPage.UpdateList(listName);
+        form = boardPage.updateList(listName);
         form.fillForm(data);
         form.submit();
     }

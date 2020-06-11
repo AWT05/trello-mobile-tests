@@ -33,7 +33,7 @@ public final class Board extends PageObject {
     @AndroidFindBy(xpath = LIST_NAME)
     private MobileElement listName;
 
-    public Board(WebDriver driver) {
+    public Board(final WebDriver driver) {
         super(driver);
     }
 
@@ -48,16 +48,16 @@ public final class Board extends PageObject {
 
     public FormPage<?> createNewList() {
         while (!actions.isElementDisplayed(createNewList)) {
-            actions.SwipeScreenRight(panelBoard);
+            actions.swipeScreenRight(panelBoard);
         }
         createNewList.click();
         return new CreateListForm(driver);
     }
 
-    public FormPage<?> UpdateList(String name) {
+    public FormPage<?> updateList(final String name) {
         wait.until(ExpectedConditions.visibilityOf(listName));
         while (!listName.getText().equals(name)) {
-            actions.SwipeScreenRight(panelBoard);
+            actions.swipeScreenRight(panelBoard);
         }
         listName.click();
         return new UpdateListForm(driver);

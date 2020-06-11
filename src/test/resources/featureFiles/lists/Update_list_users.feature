@@ -6,7 +6,7 @@ Feature: list interactions
     And I create a "board" with:
       | name | ShareMobile |
     And I invite a member by setting its type with:
-      | user2 | normal |
+      | user2 | admin |
     And I create a "list" with:
       | name    | toShare    |
       | idBoard | {board.id} |

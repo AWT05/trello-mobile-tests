@@ -2,13 +2,9 @@ package org.fundacionjala.Pages.login;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.fundacionjala.core.Environment;
 import org.fundacionjala.core.ui.page.PageObject;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import java.util.concurrent.TimeUnit;
 
 public final class LoginPage extends PageObject {
 

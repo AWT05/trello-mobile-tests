@@ -23,7 +23,7 @@ public final class UpdateListForm extends FormPage<ListPage> {
     @AndroidFindBy(id = CONFIRM_ICON)
     private MobileElement confirmIcon;
 
-    public UpdateListForm(WebDriver driver) {
+    public UpdateListForm(final WebDriver driver) {
         super(driver);
     }
 
@@ -39,7 +39,7 @@ public final class UpdateListForm extends FormPage<ListPage> {
         return data;
     }
 
-    private void setListName(String listName) {
+    private void setListName(final String listName) {
         listNameTextField.clear();
         listNameTextField.sendKeys(listName);
     }

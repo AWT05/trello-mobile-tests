@@ -21,11 +21,11 @@ public final class LoginCredentials extends PageObject {
     @AndroidFindBy(id = PASSWORD_FIELD)
     private MobileElement passwordField;
 
-    public LoginCredentials(WebDriver driver) {
+    public LoginCredentials(final WebDriver driver) {
         super(driver);
     }
 
-    public LoginCredentials setUserName(String userName) {
+    public LoginCredentials setUserName(final String userName) {
         wait.until(ExpectedConditions.visibilityOf(userField));
         userField.clear();
         userField.sendKeys(userName);
@@ -33,7 +33,7 @@ public final class LoginCredentials extends PageObject {
         return this;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         wait.until(ExpectedConditions.visibilityOf(passwordField));
         passwordField.clear();
         passwordField.sendKeys(password);

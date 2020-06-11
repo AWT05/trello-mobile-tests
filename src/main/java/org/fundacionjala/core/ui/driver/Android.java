@@ -7,8 +7,6 @@ import org.fundacionjala.core.Environment;
 import org.fundacionjala.core.ui.device.Device;
 import org.openqa.selenium.WebDriver;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.fundacionjala.core.ui.device.DeviceFactory.getDevice;
 
 public final class Android extends AbstractPlatform {

@@ -17,6 +17,9 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverActions {
 
+    private static final Double PANEL_TOUCH_LEFT = 0.8;
+    private static final Double PANEL_TOUCH_RIGHT = 0.2;
+    private static final Integer HALF_PANEL_TOUCH_SCREEN = 2;
     protected WebDriver driver;
     protected WebDriverWait wait;
 
@@ -28,9 +31,10 @@ public class DriverActions {
     /**
      * Indicates if the actual element is displayed.
      *
+     * @param webElement web element.
      * @return true if actual element is displayed, else false.
      */
-    public Boolean isElementDisplayed(WebElement webElement) {
+    public Boolean isElementDisplayed(final WebElement webElement) {
         Environment env = Environment.getInstance();
         try {
             wait.withTimeout(env.getReducedTime(), TimeUnit.SECONDS);
@@ -48,12 +52,12 @@ public class DriverActions {
      *
      * @param webElement web element.
      */
-    public void SwipeScreenRight(WebElement webElement) {
+    public void swipeScreenRight(final WebElement webElement) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
         Dimension dimension = webElement.getSize();
-        int anchor = webElement.getSize().getHeight() / 2;
-        int scrollStart = (int) (dimension.getWidth() * 0.8);
-        int scrollEnd = (int) (dimension.getWidth() * 0.2);
+        int anchor = webElement.getSize().getHeight() / HALF_PANEL_TOUCH_SCREEN;
+        int scrollStart = (int) (dimension.getWidth() * PANEL_TOUCH_LEFT);
+        int scrollEnd = (int) (dimension.getWidth() * PANEL_TOUCH_RIGHT);
         performSwipeActions(scrollStart, scrollEnd, anchor);
     }
 
@@ -64,7 +68,7 @@ public class DriverActions {
      * @param end    final point to finish the swipe.
      * @param anchor set the direction.
      */
-    private void performSwipeActions(int start, int end, int anchor) {
+    private void performSwipeActions(final int start, final int end, final int anchor) {
         new TouchAction((PerformsTouchActions) driver)
                 .press(PointOption.point(start, anchor))
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))

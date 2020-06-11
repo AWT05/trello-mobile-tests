@@ -12,11 +12,11 @@ public final class ListPage extends PageObject {
     @AndroidFindBy(xpath = LIST_NAME)
     private MobileElement listName;
 
-    public ListPage(WebDriver driver) {
+    public ListPage(final WebDriver driver) {
         super(driver);
     }
 
-    public String getListName(){
+    public String getListName() {
         return listName.getText();
     }
 }
