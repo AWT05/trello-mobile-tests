@@ -15,11 +15,11 @@ import java.util.Map;
 
 public final class ListPage extends PageObject {
     private static final String LIST_PATH =
-            "//*[@text='%s']/ancestor::android.widget.LinearLayout[@resource-id='com.trello:id/card_list_container']";
-    private static final String FOOTER_ADD_CARD = "//*[@resource-id='com.trello:id/cardlist_footer_container']";
-    private static final String NAME = "name";
-    private static final String CARD_TEXT_PATH = "//*[@resource-id='com.trello:id/cardText'][@text='%s']";
+            "//*[@text='%s']/ancestor::*[@resource-id='com.trello:id/card_list_container']";
     private static final String CONTAINER_PATH = "/*[@resource-id='com.trello:id/recycler_view']";
+    private static final String CARD_TEXT_PATH = "//*[@resource-id='com.trello:id/cardText'][@text='%s']";
+    private static final String ADD_CARD_PATH = "//*[@resource-id='com.trello:id/cardlist_footer_container']";
+    private static final String NAME = "name";
     private String listPath;
     private WebElement cardSelected;
 
@@ -36,7 +36,7 @@ public final class ListPage extends PageObject {
     }
 
     public CardForm createCard() {
-        String locator = listPath.concat(FOOTER_ADD_CARD);
+        String locator = listPath.concat(ADD_CARD_PATH);
         By buttonLocator = By.xpath(locator);
         wait.until(ExpectedConditions.visibilityOfElementLocated(buttonLocator));
         WebElement button = driver.findElement(buttonLocator);

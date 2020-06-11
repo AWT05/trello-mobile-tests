@@ -18,6 +18,3 @@ Feature: Cards context.
       | name | First task |
     Then I should have a card on "Tasks" list with:
       | name | First task |
-
-
-
