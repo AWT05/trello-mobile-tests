@@ -12,9 +12,9 @@ import java.util.Map;
 
 import static org.fundacionjala.core.ui.form.FormFieldsEnum.NAME;
 
-public final class ListForm extends FormPage<ListPage> {
+public final class UpdateListForm extends FormPage<ListPage> {
 
-    private static final String LIST_NAME_TEXT_FIELD = "com.trello:id/list_name_edit_text";
+    private static final String LIST_NAME_TEXT_FIELD = "com.trello:id/list_name";
     private static final String CONFIRM_ICON = "com.trello:id/confirm";
 
     @AndroidFindBy(id = LIST_NAME_TEXT_FIELD)
@@ -23,7 +23,7 @@ public final class ListForm extends FormPage<ListPage> {
     @AndroidFindBy(id = CONFIRM_ICON)
     private MobileElement confirmIcon;
 
-    public ListForm(WebDriver driver) {
+    public UpdateListForm(WebDriver driver) {
         super(driver);
     }
 
@@ -39,7 +39,7 @@ public final class ListForm extends FormPage<ListPage> {
         return data;
     }
 
-    public void setListName(String listName) {
+    private void setListName(String listName) {
         listNameTextField.clear();
         listNameTextField.sendKeys(listName);
     }

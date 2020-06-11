@@ -18,21 +18,45 @@ public class ListStepdefs {
     private Board boardPage;
     private ListPage listPage;
 
-    public ListStepdefs(SharedDriver driver) {
+    public ListStepdefs(final SharedDriver driver) {
         boardPage = new Board(getDriver());
         listPage = new ListPage(getDriver());
     }
 
+    /**
+     * Creates a list with specific data.
+     *
+     * @param data expected list data.
+     */
     @When("I create a List with:")
-    public void iCreateAListWith(Map<String, String> data) {
+    public void iCreateAListWith(final Map<String, String> data) {
         form = boardPage.createNewList();
         form.fillForm(data);
         form.submit();
     }
 
-    @Then("I should have a list created with:")
-    public void iShouldHaveAListCreatedWith(Map<String, String> expectedData) {
+    /**
+     * Validates the list creation.
+     *
+     * @param expectedData expected data to validate the creation.
+     */
+    @Then("I should have a list (created)(updated) with:")
+    public void iShouldHaveAListCreatedWith(final Map<String, String> expectedData) {
         String currentData = listPage.getListName();
-        assertEquals(currentData,expectedData.get("name"));
+        assertEquals(currentData, expectedData.get("name"));
+    }
+
+
+    /**
+     * Updates a list with specific data.
+     *
+     * @param listName to set the list name.
+     * @param data     expected list data.
+     */
+    @When("I update the {string} List with:")
+    public void iUpdateTheListWith(final String listName, final Map<String, String> data) {
+        form = boardPage.UpdateList(listName);
+        form.fillForm(data);
+        form.submit();
     }
 }

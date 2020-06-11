@@ -1,7 +1,9 @@
 package org.fundacionjala.Pages;
 
 import io.appium.java_client.MobileElement;
-import org.fundacionjala.Pages.list.ListForm;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.fundacionjala.Pages.list.CreateListForm;
+import org.fundacionjala.Pages.list.UpdateListForm;
 import org.fundacionjala.core.ui.form.FormPage;
 import org.fundacionjala.core.ui.page.PageObject;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,7 @@ public final class Board extends PageObject {
     private static final String CLOSE_BUTTON_XPATH = "//android.widget.ImageButton[@content-desc]";
     private static final String CREATE_NEW_LIST = "com.trello:id/add_list_button";
     private static final String PANEL_BOARD = "//android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView";
+    private static final String LIST_NAME = "//android.widget.EditText";
 
     @FindBy(id = BOARD_TITLE)
     private MobileElement boardTitle;
@@ -26,6 +29,9 @@ public final class Board extends PageObject {
 
     @FindBy(xpath = PANEL_BOARD)
     private MobileElement panelBoard;
+
+    @AndroidFindBy(xpath = LIST_NAME)
+    private MobileElement listName;
 
     public Board(WebDriver driver) {
         super(driver);
@@ -45,6 +51,15 @@ public final class Board extends PageObject {
             actions.SwipeScreenRight(panelBoard);
         }
         createNewList.click();
-        return new ListForm(driver);
+        return new CreateListForm(driver);
+    }
+
+    public FormPage<?> UpdateList(String name) {
+        wait.until(ExpectedConditions.visibilityOf(listName));
+        while (!listName.getText().equals(name)) {
+            actions.SwipeScreenRight(panelBoard);
+        }
+        listName.click();
+        return new UpdateListForm(driver);
     }
 }
