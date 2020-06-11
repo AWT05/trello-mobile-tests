@@ -1,4 +1,4 @@
-package org.fundacionjala.core.ui.config;
+package org.fundacionjala.core;
 
 import io.restassured.path.json.JsonPath;
 

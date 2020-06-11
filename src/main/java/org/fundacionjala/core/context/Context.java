@@ -1,6 +1,7 @@
 package org.fundacionjala.core.context;
 
 import io.restassured.response.Response;
+import org.fundacionjala.core.entities.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.Map;
 
 public class Context {
 
+    private User user;
     private Map<String, Response> responses;
     private Map<String, List<String>> mapIds;
 
@@ -25,6 +27,7 @@ public class Context {
     public void initializeValues() {
         responses = new HashMap<>();
         mapIds = new HashMap<>();
+        user = null;
     }
 
     /**

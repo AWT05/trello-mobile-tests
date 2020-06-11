@@ -1,4 +1,4 @@
-package org.fundacionjala.Pages;
+package org.fundacionjala.trello.pages;
 
 import org.fundacionjala.core.ui.page.PageObject;
 import org.openqa.selenium.WebDriver;

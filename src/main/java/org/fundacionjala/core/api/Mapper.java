@@ -1,7 +1,7 @@
 package org.fundacionjala.core.api;
 
 import io.restassured.response.Response;
-import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.Environment;
 
 import java.util.Map;
 import java.util.regex.Matcher;

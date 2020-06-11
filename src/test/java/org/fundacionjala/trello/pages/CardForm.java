@@ -1,4 +1,4 @@
-package org.fundacionjala.Pages;
+package org.fundacionjala.trello.pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.KeyEvent;

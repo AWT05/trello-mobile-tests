@@ -1,4 +1,4 @@
-package org.fundacionjala.Pages;
+package org.fundacionjala.trello.pages;
 
 import io.appium.java_client.MobileElement;
 import org.fundacionjala.core.ui.page.PageObject;
@@ -8,15 +8,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public final class SideDrawerMenu extends PageObject {
 
-    private static final String BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/" +
-            "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout" +
-            ".widget.DrawerLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view." +
-            "ViewGroup[2]/android.widget.TextView";
+    private static final String BOARDS_XPATH = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/"
+            + "android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout"
+            + ".widget.DrawerLayout/android.widget.LinearLayout/androidx.recyclerview.widget.RecyclerView/android.view."
+            + "ViewGroup[2]/android.widget.TextView";
 
     @FindBy(xpath = BOARDS_XPATH)
     private MobileElement boardsButton;
 
-    public SideDrawerMenu(WebDriver driver) {
+    public SideDrawerMenu(final WebDriver driver) {
         super(driver);
     }
 

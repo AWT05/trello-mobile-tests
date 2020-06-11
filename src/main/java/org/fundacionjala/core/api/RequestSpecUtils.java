@@ -3,7 +3,7 @@ package org.fundacionjala.core.api;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.Environment;
 
 import java.util.Map;
 

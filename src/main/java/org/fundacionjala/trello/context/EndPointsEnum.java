@@ -1,10 +1,10 @@
-package org.fundacionjala.utils;
+package org.fundacionjala.trello.context;
 
 public enum EndPointsEnum {
     BOARD("/boards/"),
     CARD("/cards/"),
     LIST("/lists/"),
-    ORGANIZATION("/organizations/");
+    TEAM("/organizations/");
 
     private final String endPoint;
 
@@ -24,11 +24,5 @@ public enum EndPointsEnum {
      */
     public String getEndPoint() {
         return endPoint;
-    }
-
-
-    @Override
-    public String toString() {
-        return this.name().toLowerCase();
     }
 }

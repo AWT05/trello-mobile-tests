@@ -1,6 +1,6 @@
 package org.fundacionjala.core.ui.device;
 
-import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.Environment;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;

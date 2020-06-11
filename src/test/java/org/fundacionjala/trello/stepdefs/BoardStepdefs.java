@@ -1,9 +1,9 @@
-package org.fundacionjala.stepdefs;
+package org.fundacionjala.trello.stepdefs;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.fundacionjala.Pages.Board;
-import org.fundacionjala.Pages.Home;
+import org.fundacionjala.trello.pages.Board;
+import org.fundacionjala.trello.pages.Home;
 import org.fundacionjala.core.ui.driver.SharedDriver;
 import org.fundacionjala.core.ui.form.FormPage;
 import org.openqa.selenium.WebDriver;

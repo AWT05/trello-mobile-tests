@@ -1,4 +1,4 @@
-package org.fundacionjala.Pages;
+package org.fundacionjala.trello.pages;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
@@ -9,7 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +23,11 @@ public final class ListPage extends PageObject {
     private static final String NAME = "name";
     private String listPath;
     private WebElement cardSelected;
+
+    private static final String LIST_NAME = "//android.widget.EditText";
+
+    @AndroidFindBy(xpath = LIST_NAME)
+    private MobileElement listName;
 
     public ListPage(final WebDriver driver) {
         super(driver);
@@ -76,5 +82,9 @@ public final class ListPage extends PageObject {
                 .release()
                 .perform();
         return this;
+    }
+
+    public String getListName() {
+        return listName.getText();
     }
 }

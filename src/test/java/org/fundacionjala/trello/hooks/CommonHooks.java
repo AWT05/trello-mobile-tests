@@ -1,9 +1,9 @@
-package org.fundacionjala.hooks;
+package org.fundacionjala.trello.hooks;
 
 import io.cucumber.java.After;
 import org.fundacionjala.core.api.RequestManager;
 import org.fundacionjala.core.context.Context;
-import org.fundacionjala.utils.EndPointsEnum;
+import org.fundacionjala.trello.utils.EndPointsEnum;
 
 public final class CommonHooks {
 

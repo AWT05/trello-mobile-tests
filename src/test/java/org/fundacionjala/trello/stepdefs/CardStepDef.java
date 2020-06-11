@@ -1,8 +1,8 @@
-package org.fundacionjala.stepdefs;
+package org.fundacionjala.trello.stepdefs;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.fundacionjala.Pages.ListPage;
+import org.fundacionjala.trello.pages.ListPage;
 import org.fundacionjala.core.ui.form.FormPage;
 
 import java.util.Map;

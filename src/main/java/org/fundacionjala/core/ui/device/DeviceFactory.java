@@ -1,6 +1,6 @@
 package org.fundacionjala.core.ui.device;
 
-import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.Environment;
 
 public final class DeviceFactory {
 
