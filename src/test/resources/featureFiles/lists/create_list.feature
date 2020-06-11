@@ -9,3 +9,8 @@ Feature: List
   @cleanData
   Scenario: Create a list
     Given I log in with my Trello account as "user1"
+    And I select "TestApp" board
+    When I create a List with:
+      | name | ReviewSubjects |
+#    Then I should have a list created with:
+#      | name | To Do |

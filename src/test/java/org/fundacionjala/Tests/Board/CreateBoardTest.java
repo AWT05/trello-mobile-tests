@@ -2,7 +2,6 @@ package org.fundacionjala.Tests.Board;
 
 import org.fundacionjala.Pages.Board;
 import org.fundacionjala.Pages.Home;
-import org.fundacionjala.Pages.Login;
 import org.testng.annotations.Test;
 
 import static org.testng.AssertJUnit.assertEquals;
