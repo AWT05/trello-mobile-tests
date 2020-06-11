@@ -22,7 +22,7 @@ public class LoginStepDefs {
      */
     @Given("I log in with my Trello account as {string}")
     public void iLogInWithMyTrelloAccountAs(String userAccount) {
-        if(login.skippLogin()) {
+        if(login.skipLogin()) {
             UserTrello user = new UserTrello(userAccount);
             login.acceptMessage().pressLoginButton()
                     .setUserName(user.getEmail())
