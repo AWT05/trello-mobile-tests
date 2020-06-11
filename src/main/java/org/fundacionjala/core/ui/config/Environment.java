@@ -25,7 +25,7 @@ public final class Environment {
     private static final String REAL_MOBILE = "realMobile";
     private static final String EXPLICIT_TIME_WAIT = "explicitTimeWait";
     private static final String IMPLICIT_TIME_WAIT = "implicitTimeWait";
-    private static final String REDUCE_EXPLICIT_TIME = "reduceExplicitTime";
+    private static final String REDUCE_EXPLICIT_TIME = "reducedExplicitTime";
     private static final String PORT = "port";
     private static final String IP_ADDRESS = "ipAddress";
     private static final String API_BASE_URI = "apiBaseUri";

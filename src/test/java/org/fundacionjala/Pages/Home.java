@@ -2,14 +2,17 @@ package org.fundacionjala.Pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.fundacionjala.core.ui.config.Environment;
+import org.fundacionjala.core.ui.page.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.fundacionjala.core.ui.page.PageObject;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public final class Home extends PageObject {
 
@@ -30,6 +33,8 @@ public final class Home extends PageObject {
             "recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView";
     private static final String AVAILABLE_BOARDS_XPATH = "//androidx.recyclerview.widget.RecyclerView/" +
             "android.widget.FrameLayout/android.view.ViewGroup/android.widget.TextView";
+    private static final String BOARD_PATH =
+            "//*[@text='%s']/parent::android.view.ViewGroup//parent::android.widget.FrameLayout";
 
     @AndroidFindBy(id = ADD_BUTTON)
     private MobileElement addButton;
@@ -109,12 +114,20 @@ public final class Home extends PageObject {
     }
 
     public void selectBoard(final String name) {
+        String boardPath = String.format(BOARD_PATH, name);
+        By boardLocator = By.xpath(boardPath);
         wait.until(ExpectedConditions.visibilityOfAllElements((listOfBoards)));
-        for (WebElement search : listOfBoards) {
-            if (search.getText().equals(name)) {
-                search.click();
-                break;
-            }
+        wait.until(ExpectedConditions.elementToBeClickable(boardLocator));
+        MobileElement board = driver.findElement(boardLocator);
+        Environment env = Environment.getInstance();
+        try {
+            board.click();
+            wait.withTimeout(env.getReducedTime(), TimeUnit.SECONDS);
+            wait.until(ExpectedConditions.invisibilityOf(board));
+        } catch (TimeoutException ex) {
+            board.click();
+        } finally {
+            wait.withTimeout(env.getExplicitTimeWait(), TimeUnit.SECONDS);
         }
     }
 }

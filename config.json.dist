@@ -10,7 +10,9 @@
         "platformName": "Android",
         "platformVersion": "10",
         "appPackage": "com.trello",
-        "appActivity": ".home.HomeActivity"
+        "appActivity": ".home.HomeActivity",
+        "unicodeKeyboard": "true",
+        "resetKeyboard": "true"
       },
       "emulator" : {
         "deviceName": "generic_android29",
@@ -18,7 +20,9 @@
         "platformName": "Android",
         "platformVersion": "10",
         "appPackage": "com.android.dialer",
-        "appActivity": ".main.impl.MainActivity"
+        "appActivity": ".main.impl.MainActivity",
+        "unicodeKeyboard": "true",
+        "resetKeyboard": "true"
       }
     },
     "accounts": [
