@@ -3,9 +3,10 @@ package org.fundacionjala.stepdefs;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Given;
 import io.restassured.response.Response;
-import org.fundacionjala.utils.EndPointsEnum;
 import org.fundacionjala.core.api.RequestManager;
 import org.fundacionjala.core.context.Context;
+import org.fundacionjala.core.ui.driver.SharedDriver;
+import org.fundacionjala.utils.EndPointsEnum;
 
 import java.util.Map;
 
@@ -21,10 +22,14 @@ public final class ApiRequestStepDef {
     /**
      * Initializes an instance of RequestSteps class.
      *
+     * @param sharedDriver   init driver.
      * @param context        scenario context.
      * @param requestManager helper to sending requests.
      */
-    public ApiRequestStepDef(final Context context, final RequestManager requestManager) {
+    public ApiRequestStepDef(
+            final SharedDriver sharedDriver,
+            final Context context,
+            final RequestManager requestManager) {
         this.context = context;
         this.requestManager = requestManager;
     }

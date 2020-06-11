@@ -2,22 +2,19 @@
 Feature: Cards context.
 
   Background: Create a board and a list
-
-  Scenario: Create a card
-    Given I authenticate as "user1"
+    Given I authenticate as "user2"
     And I create a board with:
       | name | GUI |
     And I create a list with:
-      | name    | to do      |
+      | name    | Tasks      |
       | idBoard | {board.id} |
 
-  Scenario: Create a card into a Team
-    Given I authenticate as "user1"
-    And I create an organization with:
-      | displayName | AWT05GUI |
-    And I create a board with:
-      | name           | GUI               |
-      | idOrganization | {organization.id} |
-    And I create a list with:
-      | name    | Members tasks |
-      | idBoard | {board.id}    |
+  Scenario: Create a card
+    Given I select "GUI" board
+    When I create a card on "Tasks" list with:
+      | name | First task |
+    Then I should have a card on "Tasks" list with:
+      | name | First task |
+
+
+
