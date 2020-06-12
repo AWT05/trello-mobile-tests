@@ -2,7 +2,7 @@ package org.fundacionjala.stepdefs;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.fundacionjala.Pages.ListPage;
+import org.fundacionjala.Pages.list.ListPage;
 import org.fundacionjala.core.ui.form.FormPage;
 
 import java.util.Map;
