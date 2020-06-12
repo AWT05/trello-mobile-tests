@@ -1,9 +1,10 @@
-@accptance
+@acceptance
 Feature: Board context.
 
   Background: Login in the page
-#    TO DO: Given I log in with my Trello account as "user1"
+    Given I log in with my Trello account as "user1"
 
+  @cleanDataApi
   Scenario: Create a simple personal board from header.
     When I create a board from addButton with the following data
       | title | NOT wild |

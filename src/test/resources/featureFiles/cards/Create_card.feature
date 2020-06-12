@@ -2,7 +2,7 @@
 Feature: Cards context.
 
   Background: Create a board and a list
-    Given I authenticate as "user2"
+    Given I authenticate as "user1"
     And I create a board with:
       | name | GUI |
     And I create a list with:
@@ -10,7 +10,8 @@ Feature: Cards context.
       | idBoard | {board.id} |
 
   Scenario: Create a card
-    Given I select "GUI" board
+    Given I log in with my Trello account as "user1"
+    And I select "GUI" board
     When I create a card on "Tasks" list with:
       | name | First task |
     Then I should have a card on "Tasks" list with:

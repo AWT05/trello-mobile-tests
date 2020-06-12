@@ -1,9 +1,12 @@
-package org.fundacionjala.Pages;
+package org.fundacionjala.Pages.list;
 
 import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
+import org.fundacionjala.Pages.CardForm;
 import org.fundacionjala.core.ui.page.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +22,7 @@ public final class ListPage extends PageObject {
     private static final String CONTAINER_PATH = "/*[@resource-id='com.trello:id/recycler_view']";
     private static final String CARD_TEXT_PATH = "//*[@resource-id='com.trello:id/cardText'][@text='%s']";
     private static final String ADD_CARD_PATH = "//*[@resource-id='com.trello:id/cardlist_footer_container']";
+    private static final String LIST_NAME = "//android.widget.EditText";
     private static final String NAME = "name";
     private String listPath;
     private WebElement cardSelected;
@@ -34,6 +38,9 @@ public final class ListPage extends PageObject {
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
         return this;
     }
+
+    @AndroidFindBy(xpath = LIST_NAME)
+    private MobileElement listName;
 
     public CardForm createCard() {
         String locator = listPath.concat(ADD_CARD_PATH);
@@ -76,5 +83,9 @@ public final class ListPage extends PageObject {
                 .release()
                 .perform();
         return this;
+    }
+
+    public String getListName() {
+        return listName.getText();
     }
 }

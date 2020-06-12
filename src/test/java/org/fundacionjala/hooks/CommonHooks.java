@@ -3,7 +3,9 @@ package org.fundacionjala.hooks;
 import io.cucumber.java.After;
 import org.fundacionjala.core.api.RequestManager;
 import org.fundacionjala.core.context.Context;
+import org.fundacionjala.core.ui.driver.SharedDriver;
 import org.fundacionjala.utils.EndPointsEnum;
+import org.openqa.selenium.WebDriver;
 
 public final class CommonHooks {
 

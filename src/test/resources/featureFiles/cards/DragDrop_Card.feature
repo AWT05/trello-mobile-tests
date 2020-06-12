@@ -2,7 +2,7 @@
 Feature: Cards context.
 
   Background: Create a board with lists and a card
-    Given I authenticate as "user2"
+    Given I authenticate as "user1"
     And I create a board with:
       | name | Juan Party |
     And I create a list with:
@@ -16,7 +16,8 @@ Feature: Cards context.
       | idList | {list.id}     |
 
   Scenario Outline: Drags and drops card
-    Given I select "Juan Party" board
+    Given I log in with my Trello account as "user1"
+    And I select "Juan Party" board
     When I move "Especial task" card from "<Source>" to "<Target>"
     Then I should have a card on "In progress" list with:
       | name | Especial task |
